@@ -299,7 +299,9 @@ func (server *Server) createTLSConfig(entryPointName string, tlsOption *TLS, rou
 		if _, ok := server.serverEntryPoints[server.globalConfiguration.ACME.EntryPoint]; ok {
 			if entryPointName == server.globalConfiguration.ACME.EntryPoint {
 				checkOnDemandDomain := func(domain string) bool {
-					if router.GetHandler().Match(&http.Request{URL: &url.URL{}, Host: domain}, &mux.RouteMatch{}) {
+					routeMatch := &mux.RouteMatch{}
+					router := router.GetHandler()
+					if router.Match(&http.Request{URL: &url.URL{}, Host: domain}, routeMatch) && routeMatch.Route != nil {
 						return true
 					}
 					return false
