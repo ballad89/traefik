@@ -290,7 +290,12 @@ func (server *Server) createTLSConfig(entryPointName string, tlsOption *TLS, rou
 	for _, v := range tlsOption.Certificates {
 		cert, err := tls.LoadX509KeyPair(v.CertFile, v.KeyFile)
 		if err != nil {
-			return nil, err
+			//if strings are valid filepaths return err
+			cert, err := tls.X509KeyPair([]byte(v.CertFile), []byte(v.KeyFile))
+			if err != nil {
+				return nil, err
+			}
+
 		}
 		config.Certificates = append(config.Certificates, cert)
 	}
