@@ -12,6 +12,57 @@ defaultEntryPoints = ["https"]
      [[entryPoints.https.tls.certificates]]
      CertFile = "fixtures/https/snitest.org.cert"
      KeyFile = "fixtures/https/snitest.org.key"
+     [[entryPoints.https.tls.certificates]]
+     CertFile = `-----BEGIN CERTIFICATE-----
+MIIDLDCCAhSgAwIBAgIJAMaBUGWezyuPMA0GCSqGSIb3DQEBBQUAMBgxFjAUBgNV
+BAMTDXNuaXRlc3QuY28uemEwHhcNMTYwNzE0MDAyNjA0WhcNMjYwNzEyMDAyNjA0
+WjAYMRYwFAYDVQQDEw1zbml0ZXN0LmNvLnphMIIBIjANBgkqhkiG9w0BAQEFAAOC
+AQ8AMIIBCgKCAQEA1B+eBSQ5C4X90qx4SunYYAdJeojp5xS8EMuiQ35g7bUmO1A1
+VaQgFSoLYZKiMsZHS8+pFm2I9y0xqU+wH8uCQr398XQGLB2HfaDK5B3e7sI8KF6p
+Mg1EZlfxZxPhh6UgVHbAR9EqtddQSpzRH1ZSy8bpT+IlnLnjfLVMDBYc6751ORC9
+THa2V0O+O9tww5THKZSnvfeasbpXaGtIripGxo8/6cR2zgQg2wAc6Dl20xMQh+so
+aat69gW5TdNp2AQae5RmHhnDLSunbNyVktrCCr86eagm+CzKKB9BG/5GQ24MryE9
+EtFyCb8uIIlrajGQRv111VHjtU0hVNtgvngkXwIDAQABo3kwdzAdBgNVHQ4EFgQU
+/RI0GBhU1lIGym40kN0/HoT8WXMwSAYDVR0jBEEwP4AU/RI0GBhU1lIGym40kN0/
+HoT8WXOhHKQaMBgxFjAUBgNVBAMTDXNuaXRlc3QuY28uemGCCQDGgVBlns8rjzAM
+BgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBQUAA4IBAQCKaxEJ6jZ7JFnK4ynKG4Zg
++CJwceu0etGeWc9Ld1Ko+5WIfplimIezSAOr+KkQex2InLzsd0V87hSxb/XAhlDU
+6CTplQooRmIga5gOGgdzV88tiGKbFA+yOhsqdaFUT/Wb7MVKNliC7dNv6RFp2MOq
+Im5jnfS/zi5UiGwk9V8vrc3L9VmvO2FW5EfLloZA0qMKyqyMjLEkzjfnT5hpAOSA
+1VBUz3+5UL5/UVAbFzC9swU3ylfPhjplKjVlFPTm4GRQJQJI+l58FGX1tF4sdmZ3
+mYJerbQ1CUCBUKUgC/ybHpnEWM+LFtNMhjxy/ghiIMtUXbAAtp3sN335f53YrczE
+-----END CERTIFICATE-----
+`
+     KeyFile = `
+-----BEGIN RSA PRIVATE KEY-----
+MIIEowIBAAKCAQEA1B+eBSQ5C4X90qx4SunYYAdJeojp5xS8EMuiQ35g7bUmO1A1
+VaQgFSoLYZKiMsZHS8+pFm2I9y0xqU+wH8uCQr398XQGLB2HfaDK5B3e7sI8KF6p
+Mg1EZlfxZxPhh6UgVHbAR9EqtddQSpzRH1ZSy8bpT+IlnLnjfLVMDBYc6751ORC9
+THa2V0O+O9tww5THKZSnvfeasbpXaGtIripGxo8/6cR2zgQg2wAc6Dl20xMQh+so
+aat69gW5TdNp2AQae5RmHhnDLSunbNyVktrCCr86eagm+CzKKB9BG/5GQ24MryE9
+EtFyCb8uIIlrajGQRv111VHjtU0hVNtgvngkXwIDAQABAoIBAHLPFgj0XQe2ovW2
+sXjibmEzMHroxahzmYKBpLZhHXcq96FcvTE4HsE1u2k5Ix7WIFqQ75Sa/mnCBUH9
+Rnc+/6a+DEb2JC0WYnIFaCrlW/bgHA1BhtP3SFEYQiknIob3QbNVfqagODypZ+Sq
+UaljYHa4lyjMXs0f81dZDOrxwP96XreiFAe2Z947ohaxOE3nqBfmGD4VTy2QoD5I
+VLdOFe8d5fJv8VK77CZx2XgfcwayWMKXBeRT4Mu7cTj9YQY+6XOui0QMFi2RllPM
++ZENXeALv4vjhBORABG/1WsOZR2iCv3zr4D8puv/e5AiAeXYIImViqSDui9JGAXD
+Z3UhLSECgYEA8KEhEv6gQrzklT5JNYq7Tq5uPcpiKt2dsp1OpHBL8hNiJaVbUBUv
+ZAgqVpxrQgrJYBAyPH49NBeRb0tCiZsCTN75DxIih4nQs5DjMA0yrDlAwHoE6XxM
+q5Nlq2ETSuBF9BQN2a1MYNUPyTn0mjSxIAIEMag13ajwvSp+cBAI8G8CgYEA4axZ
+Ccu865dJT7ragQhkzEhiF3GQA82PZAqrVt585b3lFtu6AcINgjXY6iiM3GSJaAeK
+Uva6L6HsFHSfIw65TT400hLOGcjt9bCL3cKE94+eVgfmnq8d5M8y+BnTL42DVLtj
+qVcoEUfOxTO8Y4JZkkWFiZcpuy8/JSVwF8mPIxECgYALWk7JKqI9A9R1Bh9GG2mC
+6M/ism23QAV0q99N+s5aeXej9w071gQKYCg/NdoJn6Com5sDJ6GTl5kQ+ygEff+5
+yLtPbreaVXI3RpqxZa4CWiEn85nPukGTxryBPW8/lR03yspsfrSfzO2VvNpBfELv
+E6lG/nysHJBfHGYiu17wmQKBgE+Wodwzj1AjDcbhpjgFhs8I5BdShLDiqSRmIuFD
+HBdGLmouWd5O2sbGSNbkMDF1/4PBzQXPYAB2gbUBIDKT+cQFIUnJOgib9VhFyD4Q
+YSaR7wx2Qt5J8igE7vvS18kYhm22nMJXK5lUkta3lUQe74oHnL3WovASDJoEJxEs
+k5+RAoGBAJCb1vKRzDiqXeFBy/N6rtzuVJXnC+X3wTXxjTJW/cRPaY/syEfVNWep
+v4XuQlqPj+eZ3115Msv+SG1wbnz3CYFlBXXw7wOrIl1ecd89Tb17r2NVqiXsAosJ
+WKGX1t1lZ4K68Wh/Pg1POkZL902fCUCyhlcZ7ZzuFZt7GRmppgs2
+-----END RSA PRIVATE KEY-----
+
+`
 
 [file]
 
@@ -22,6 +73,9 @@ defaultEntryPoints = ["https"]
   [backends.backend2]
     [backends.backend2.servers.server1]
     url = "http://127.0.0.1:9020"
+  [backends.backend3]
+    [backends.backend3.servers.server1]
+    url = "http://127.0.0.1:9030"
 
 [frontends]
   [frontends.frontend1]
@@ -32,3 +86,7 @@ defaultEntryPoints = ["https"]
   backend = "backend2"
     [frontends.frontend2.routes.test_2]
     rule = "Host:snitest.org"
+  [frontends.frontend3]
+  backend = "backend3"
+    [frontends.frontend3.routes.test_3]
+    rule = "Host:snitest.co.za"

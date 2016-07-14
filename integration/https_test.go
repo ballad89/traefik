@@ -54,8 +54,10 @@ func (s *HTTPSSuite) TestWithSNIConfigRoute(c *check.C) {
 
 	backend1 := startTestServer("9010", 204)
 	backend2 := startTestServer("9020", 205)
+	backend3 := startTestServer("9030", 206)
 	defer backend1.Close()
 	defer backend2.Close()
+	defer backend3.Close()
 
 	time.Sleep(2000 * time.Millisecond)
 
@@ -69,6 +71,12 @@ func (s *HTTPSSuite) TestWithSNIConfigRoute(c *check.C) {
 		TLSClientConfig: &tls.Config{
 			InsecureSkipVerify: true,
 			ServerName:         "snitest.org",
+		},
+	}
+	tr3 := &http.Transport{
+		TLSClientConfig: &tls.Config{
+			InsecureSkipVerify: true,
+			ServerName:         "snitest.co.za",
 		},
 	}
 
@@ -91,6 +99,16 @@ func (s *HTTPSSuite) TestWithSNIConfigRoute(c *check.C) {
 	c.Assert(err, checker.IsNil)
 	// Expected a 205 (from backend2)
 	c.Assert(resp.StatusCode, checker.Equals, 205)
+
+	client = &http.Client{Transport: tr3}
+	req, _ = http.NewRequest("GET", "https://127.0.0.1:4443/", nil)
+	req.Host = "snitest.co.za"
+	req.Header.Set("Host", "snitest.co.za")
+	req.Header.Set("Accept", "*/*")
+	resp, err = client.Do(req)
+	c.Assert(err, checker.IsNil)
+	// Expected a 206 (from backend3)
+	c.Assert(resp.StatusCode, checker.Equals, 206)
 }
 
 func startTestServer(port string, statusCode int) (ts *httptest.Server) {

@@ -14,6 +14,7 @@ import (
 	"reflect"
 	"regexp"
 	"sort"
+	"strings"
 	"syscall"
 	"time"
 
@@ -290,8 +291,12 @@ func (server *Server) createTLSConfig(entryPointName string, tlsOption *TLS, rou
 	for _, v := range tlsOption.Certificates {
 		cert, err := tls.LoadX509KeyPair(v.CertFile, v.KeyFile)
 		if err != nil {
-			//if strings are valid filepaths return err
-			cert, err := tls.X509KeyPair([]byte(v.CertFile), []byte(v.KeyFile))
+			//A valid Pem certifcate contains multiple lines
+			//if both strings are single lined, they are most likely string paths
+			if len(strings.Split(v.CertFile, "\n")) <= 1 && len(strings.Split(v.KeyFile, "\n")) <= 1 {
+				return nil, err
+			}
+			cert, err = tls.X509KeyPair([]byte(v.CertFile), []byte(v.KeyFile))
 			if err != nil {
 				return nil, err
 			}
